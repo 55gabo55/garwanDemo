@@ -28,7 +28,7 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-       /* AnimalCategory cats = new AnimalCategory("cats");
+        AnimalCategory cats = new AnimalCategory("cats");
         animalCategoryService.addAnimalCategory(cats);
 
         AnimalCategory dogs = new AnimalCategory("dogs");
@@ -70,6 +70,6 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
         productService.addProduct(product2);
 
         product2 = new Product("Granule2", cats, 43, "Pedigree", gallery);
-        productService.addProduct(product2);*/
+        productService.addProduct(product2);
     }
 }

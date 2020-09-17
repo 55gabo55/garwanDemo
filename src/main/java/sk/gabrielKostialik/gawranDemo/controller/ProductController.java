@@ -3,7 +3,6 @@ package sk.gabrielKostialik.gawranDemo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import sk.gabrielKostialik.gawranDemo.mapper.ShopOrderMapper;
 import sk.gabrielKostialik.gawranDemo.model.OrderProduct;
 import sk.gabrielKostialik.gawranDemo.model.ShopOrder;
 import sk.gabrielKostialik.gawranDemo.model.dto.ProductDto;

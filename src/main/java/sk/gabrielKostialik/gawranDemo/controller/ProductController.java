@@ -25,10 +25,6 @@ public class ProductController {
         this.orderProductService = orderProductService;
     }
 
-    @GetMapping("/product")
-    public List<ProductDto> getAll() {
-        return productService.getAll();
-    }
 
     @GetMapping("/buyProduct/{id}")
     public String buyProductInfo(Model model, @PathVariable("id") long id) {

@@ -3,11 +3,8 @@ package sk.gabrielKostialik.gawranDemo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import sk.gabrielKostialik.gawranDemo.model.OrderProduct;
 import sk.gabrielKostialik.gawranDemo.model.ShopOrder;
-import sk.gabrielKostialik.gawranDemo.model.dto.ProductDto;
-import sk.gabrielKostialik.gawranDemo.model.dto.ShopOrderDto;
 import sk.gabrielKostialik.gawranDemo.service.api.ShopOrderService;
 
 import java.util.List;
@@ -21,9 +18,6 @@ public class ShopOrderController {
         this.shopOrderService = shopOrderService;
     }
 
-
-
-
     @GetMapping("myOrder")
     public String myOrder(Model model) {
         ShopOrder shopOrder = shopOrderService.getOrder();
@@ -35,10 +29,4 @@ public class ShopOrderController {
             return "myOrder.html";
         }
     }
-
-
-  /*  @GetMapping("/shopOrder")
-    ShopOrderDto getShopOrders() {
-        return shopOrderService.getOrderDto();
-    }*/
 }

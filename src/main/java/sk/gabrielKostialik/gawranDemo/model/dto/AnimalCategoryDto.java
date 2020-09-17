@@ -1,5 +1,7 @@
 package sk.gabrielKostialik.gawranDemo.model.dto;
 
+import java.util.Objects;
+
 public class AnimalCategoryDto {
     String name;
 
@@ -16,5 +18,18 @@ public class AnimalCategoryDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AnimalCategoryDto that = (AnimalCategoryDto) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

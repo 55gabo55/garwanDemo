@@ -5,6 +5,7 @@ import sk.gabrielKostialik.gawranDemo.model.AnimalCategory;
 import javax.persistence.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ProductDto {
     private Long id;
@@ -72,5 +73,23 @@ public class ProductDto {
 
     public void setGallery(ArrayList<String> gallery) {
         this.gallery = gallery;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductDto that = (ProductDto) o;
+        return price == that.price &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(animalCategory, that.animalCategory) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(gallery, that.gallery);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, animalCategory, price, description, gallery);
     }
 }

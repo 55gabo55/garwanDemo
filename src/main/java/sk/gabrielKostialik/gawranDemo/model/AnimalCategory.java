@@ -2,6 +2,7 @@ package sk.gabrielKostialik.gawranDemo.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -35,5 +36,19 @@ public class AnimalCategory  {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AnimalCategory that = (AnimalCategory) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(products, that.products);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, products);
     }
 }

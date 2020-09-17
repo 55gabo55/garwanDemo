@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="col col-sm-11">Product: <span th:text="${product.name}"> Name </span></h2>
+
+
+        <div class="table-responsive tableDetail" >
+            <table id="products" class="table table-striped table-sm" >
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Price </th>
+                    <th> Category </th>
+                    <th> Description </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span th:text="${product.id}"> Date </span></td>
+                    <td><span th:text="${product.name}"> From </span></a></td>
+                    <td><span th:text="${product.price}"> To </span></td>
+                    <td><span th:text="${product.animalCategory.name}"> To </span></td>
+                    <td><span th:text="${product.description}"> To </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-horizontal" action="#" th:action="@{'/buyProduct/' + ${product.id} + '/' + ${product.price}}" method="post" th:object="${orderProduct}">
+            <label>Number of products:</label>
+            <input type="number" th:field="*{count}" min="1" max="10" /><br/>
+
+
+            <button class="btn btn-danger" type="submit">Buy</button>
+        </form>
+
+</div>
+</div>
+</body>
+</html>

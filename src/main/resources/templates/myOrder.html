@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="col col-sm-11">Your shopping cart</h2>
+
+        <ul>
+            <li>Total price - <span th:text="${shopOrder.totalPrice}"> Date </span>&euro;</li>
+            <li>Created - <span th:text="${shopOrder.time}"> Date </span></li>
+            <li>Click on ID for more info about product</li>
+        </ul>
+
+
+        <div class="table-responsive">
+            <table id="products" class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Price </th>
+                    <th> Count </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${shopOrder.orderProducts}">
+                    <td><a th:href="@{'/product/' + ${product.productId}}"><span th:text="${product.productId}"> From </span></a></td>
+
+                    <td><span th:text="${product.price}"> price </span>&euro;</td>
+                    <td><span th:text="${product.count}"> count </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="/listProducts" class="btn btn-warning"><span> Back to products list </span></a>
+    </div>
+</div>
+
+</body>
+</html>
